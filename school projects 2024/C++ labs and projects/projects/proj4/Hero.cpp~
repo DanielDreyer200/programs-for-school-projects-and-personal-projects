@@ -1,0 +1,121 @@
+/******************************************************************************
+ ** File:    Hero.cpp
+ ** Project: 202 Project 4, fall 2024
+ ** Author:  Daniel Dreyer
+ ** Section: 35
+ ** E-Malil: ddreyer1@umbc.edu
+ **
+ ** Discription: this file contains code to make the Hero, with health and a
+ ** name, along with setting and describing its own attack with a weapon,
+ ** getting a random weapon and getting and setting excperience from battles
+ ** in game. more simply it creates the hero of the game.
+ **
+ ******************************************************************************/
+
+//includes the header Hero
+#include "Hero.h"
+
+//overladed constructor that sets the name and hp from given variables and
+//calls the RandomWeapon() function
+Hero::Hero(string name, int hp){
+
+  //sets variables to varibles given
+  m_name = name;
+  m_health = hp;
+
+  //calls random weapon
+  RandomWeapon();
+}
+
+//destructor destroys the m_weapon pointer
+Hero::~Hero(){
+
+  delete m_weapon;
+
+
+}
+
+//desplays attack of the hero to player and returns its base damage
+int Hero::Attack(){
+
+  cout<<"You punch and do "<<WEAPON_BASE<<" to the enemy."<<endl;
+
+  return WEAPON_BASE;
+
+}
+
+//Gives out the name of the hero when the function is called
+string Hero::GetName(){return m_name;}
+
+//sets the name of the hero when the function is called with the given variable
+void Hero::SetName(string name){m_name = name;}
+
+//Gives out the hp of the hero when the function is called
+int Hero::GetHealth(){return m_health;}
+
+//sets the health of the hero when the function is called with the given variable
+void Hero::SetHealth(int hp){m_health = hp;}
+
+//Gives out the experience of the hero when the function is called
+int Hero::GetExperience(){return m_experience;}
+
+//sets the experience of the hero when the function is called with the given variable
+void Hero::SetExperience(int exp){m_experience = exp;}
+
+//creates a 
+void Hero::RandomWeapon(){
+
+  //srand(time(NULL));
+  int choice = rand()% 3;
+
+  if(choice  == 0){
+
+    m_weapon = new Plank(WEAPON_BASE);
+     
+  }else if(choice == 1){
+
+    m_weapon = new Chainsaw(WEAPON_BASE);
+    
+  } else if (choice == 2){
+
+    m_weapon = new Shotgun(WEAPON_BASE);
+
+  }
+
+  
+  m_weapon -> GetName();
+  
+}
+
+void Hero::ImproveWeapon(int exp){
+
+
+  int v = m_weapon->GetDamage() +1;
+
+  m_weapon->ImproveWeapon(v);
+    
+  exp = exp -3;
+
+  m_experience = exp;
+ 
+
+}
+
+int Hero::SpecialAttack(){
+
+  return m_weapon->SpecialAttack();
+}
+
+string Hero::GetWeaponName(){
+
+  return  m_weapon->GetName();
+
+}
+
+ostream& operator<<(ostream& os, Hero& hero){
+
+  os<<hero.GetName()<<" Health: "<<hero.GetHealth();
+
+  return os;
+
+}
