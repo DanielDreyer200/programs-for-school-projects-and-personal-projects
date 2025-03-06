@@ -1,0 +1,83 @@
+#include "Line.h"
+#include "Passenger.h"
+#include "proj3.cpp"
+
+using namespace std;
+
+Metro::Metro(string fileLine, string filePass){
+
+  m_fileLines = fileLine;
+  m_filePass = filePass;
+
+  mainMenu();
+  
+}
+Metro::~Metro(){
+
+  m_line.clear();
+  m_passengers.clear();
+  
+}
+void Metro::LoadLines(){
+
+  ifstream inputstream;
+
+  inputstream.open(m_fileLines);
+
+  string number;
+  string line;
+  string station;
+  
+  for(int i = 0; i< m_totalStops;i++){
+
+    getline(inputstream, number, ',');
+    getline(inputstream, line, ',');
+    getline(inputstream, station, '\n');
+
+
+
+    
+    m_Lines[i] = line;
+    m_Lines[i].Stop(number, station);
+
+    
+
+  }
+  
+
+}
+
+void Metro::LoadPasses(){
+
+  ifstream inputstream;
+
+  inputstream.open(m_filePass);
+
+  string number;
+  string line;
+  string startLocation;
+  string finalDestination;
+
+  for(int i = 0; i< m_totalStops;i++){
+
+    getline(inputstream, number, ',');
+    getline(inputstream, line, ',');
+    getline(inputstream, startLocation, ',');
+    getline(inputstream, finalDestination, '\n');
+
+
+
+
+    m_passengers[i].Passenger(stoi(number),line,startLocation,finalDestination);
+   
+
+
+
+  }
+}
+
+
+
+
+
+
