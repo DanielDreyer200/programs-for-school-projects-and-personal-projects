@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{ 
+  text-align: center;
+  margin: auto;
+  background: #AC9D93;
+}
+</style>
+<body>
+
+<h1>A Goofy Word Scramble And Image Swap</h1>
+
+<input id="box1" size="100"><br><br> 
+<button onclick="Demo1()">Click Here To Put Your Sentence Backwords (Using For Loop)</button> <br><br> 
+<p id="demo1"></p>
+
+<input id="box2" size="100"><br><br> 
+<button onclick="Demo2()">Click Here To Put Your Sentence Backwords (Using while Loop)</button> <br><br> 
+<p id="demo2"></p>
+
+<h1>Click The Button For A Surprise Goof</h1>
+
+<button onclick="imag()">Click here to replace the image below.</button> <br><br>
+<img id="image" src="images/happygoof.png" width="160" height="120">
+
+
+<script>
+
+
+
+
+function Demo1(){
+const sentince = document.getElementById("box1").value;
+const x=sentince.split(" ");
+let len = x.length;
+let done = "";
+let i = len;
+
+for (; i > 0; i--) {
+  done += x[i-1] + " ";
+}
+
+document.getElementById("demo1").innerHTML = done;
+
+}
+function Demo2(){
+const sentince2 = document.getElementById("box2").value;
+const x=sentince2.split(" ");
+let len = x.length;
+let answer = "";
+let i = len;
+
+while(i > 0) {
+  answer += x[i-1] + " ";
+  i--
+}
+document.getElementById("demo2").innerHTML = answer;
+
+}
+
+function imag(){
+
+document.getElementById("image").src ="images/surprisegoof.png";
+
+}
+
+
+
+
+</script>
+</body>
+</html>

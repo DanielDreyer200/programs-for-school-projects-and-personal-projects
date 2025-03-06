@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{ 
+  text-align: center;
+  margin: auto;
+}
+.button {
+  width: 250px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inner-block;
+  margin: 4px 2px;
+}
+.button1 {
+  background-color: #008CBA;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 30px;
+ 
+}
+.button2 {
+  background-color: #f44336;
+  font-size: 16px;
+  cursor: crosshair;
+  padding: 15px 32px;
+  border-radius: 30px;
+}
+.button3 {
+  background-color: #4CAF50;
+  font-size: 10px;
+  cursor: cursor: -webkit-grab; cursor: grab;
+  padding: 20px 36px;
+  
+}
+
+</style>
+<body>
+
+
+
+
+<button class="button button1">Button 1</button>
+<button class="button button2">Button 2</button>
+<button class="button button3">button 3</button>
+
+<p id= "math"></p>
+<script>
+const x = [8,3];
+const y = [14,2];
+let z = Math.pow(Math.pow(x[0]-x[1],2)+Math.pow(y[0]-y[1],2),.5);
+document.getElementById("math").innerHTML =
+"the distance between the 2 points ("+ x[0] +","+ y[0] + ") and ("+ x[1] +","+ y[1] + ") is: " + z;
+</script>
+
+</body>
+
+</html>
