@@ -1,0 +1,75 @@
+#include <iostream>
+
+#include <string>
+
+using namespace std;
+
+int main(){
+
+  int i=0;
+
+  int choice;
+  
+  int age;
+
+  string  Dog;
+
+
+  cout << "What is your dogs name?" << endl;
+
+  getline(cin, Dog);
+
+  cout << "enter your dogs age:" << endl;
+
+  cin >> age;
+
+  if (25 < age){
+
+    
+
+    
+  }else{
+
+    cout <<"please enter an age between 0-25" << endl;
+
+    cin.clear();
+    cin.ignore(256, '\n');
+    cin >> age;
+
+  }
+
+  while(i< 3){
+
+    cout <<"choose an activity to do with your dog: \n1. Play fetch with " << Dog <<"\n2. Feed "<< Dog<<"\n3.Pet "<<Dog<<endl;
+
+  cin >> choice;
+
+  if(choice == 1){
+
+    cout << Dog << " picked up the stick and returns to you!" << endl;
+    i++;
+    
+  }else if(choice == 2){
+
+
+    cout <<"You feed " << Dog << "!" << endl;
+    i++;
+
+  }else if(choice == 3){
+
+    cout << Dog << " is happy ypu pet them!" << endl;
+    i++;
+
+  }else{
+
+    cout<<"im sorry, thats not a list from our selection, can you try again?" << endl;
+    
+  }
+}
+
+  cout<<"you are a good pet owner to "<< Dog <<" keep it up!"<< endl;
+
+
+
+
+}

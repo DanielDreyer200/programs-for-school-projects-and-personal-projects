@@ -1,0 +1,12 @@
+using namespace std;
+
+int main(){
+  //code
+
+  string << intro;
+  
+  intro <<  count << "hello world";
+
+
+   return intro;
+}
