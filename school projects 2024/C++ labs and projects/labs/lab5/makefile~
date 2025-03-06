@@ -1,0 +1,11 @@
+CXX = g++
+CXXFLAGS = -Wall
+
+lab5: Bookstore.o lab5.cpp
+        $(CXX) $(CXXFLAGS) Bookstore.o lab5.cpp -o lab5
+
+Bookstore.o: Bookstore.cpp Bookstore.h
+        $(CXX) $(CXXFLAGS) -c Bookstore.cpp
+
+run:
+        ./lab5
